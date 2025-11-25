@@ -1,22 +1,22 @@
 <script>
-    import RatingForm from "./rating-form.svelte";
-    import Confirmation from "./confirmation.svelte";
+  import RatingForm from "./rating-form.svelte";
+  import Confirmation from "./confirmation.svelte";
 
-    let formState = $state(false);
-    let ratingResult = $state(null);
+  let formState = $state(false);
+  let ratingResult = $state(null);
 
-    function handleSubmit(selected) {
-        ratingResult = selected;
-        formState = true;
-    };
+  function handleSubmit(selected) {
+    ratingResult = selected;
+    formState = true;
+  }
 </script>
 
 <main>
-    {#if formState}
-        <Confirmation {ratingResult}/>
-    {:else}
-        <RatingForm onFormSubmit={handleSubmit} />
-    {/if}
+  {#if formState}
+    <Confirmation {ratingResult} />
+  {:else}
+    <RatingForm {handleSubmit} />
+  {/if}
 </main>
 
 <style>
