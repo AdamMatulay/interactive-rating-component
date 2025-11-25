@@ -1,35 +1,22 @@
-<main>
-  <form class="rating-form">
-    <div>
-      <img src="./public/icon-star.svg" alt="star">
-    </div>
-    <div class="rating-text-content">
-      <h1>How did we do?</h1>
-      <p>
-        Please let us know how we did with your support request. All feedback is
-        appreciated to help us improve our offering!
-      </p>
-    </div>
-    <div class="rating-buttons">
-      <label><input type="radio" name="rating" value="1" required /> 1</label>
-      <label><input type="radio" name="rating" value="2" /> 2</label>
-      <label><input type="radio" name="rating" value="3" /> 3</label>
-      <label><input type="radio" name="rating" value="4" /> 4</label>
-      <label><input type="radio" name="rating" value="5" /> 5</label>
-    </div>
-    <button type="submit" id="submit">SUBMIT</button>
-  </form>
+<script>
+    import RatingForm from "./rating-form.svelte";
+    import Confirmation from "./confirmation.svelte";
 
-  <div class="confirm-message">
-    <img src="./public/illustration-thank-you.svg" alt="">
-    <div class="rating-result">
-        <p class="rating-result-text"></p>
-    </div>
-    <div class="confirm-text-content">
-        <h1>Thank you!</h1>
-        <p>We appreciate you taking the time to give a rating. If you ever need more support, don't hesitate to get in touch!</p>
-    </div>
-  </div>
+    let formState = $state(false);
+    let ratingResult = $state(null);
+
+    function handleSubmit(selected) {
+        ratingResult = selected;
+        formState = true;
+    };
+</script>
+
+<main>
+    {#if formState}
+        <Confirmation {ratingResult}/>
+    {:else}
+        <RatingForm onFormSubmit={handleSubmit} />
+    {/if}
 </main>
 
 <style>
@@ -51,7 +38,10 @@
 
   :global(body) {
     font-family: "Overpass", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100dvh;
+    background: var(--Grey950);
   }
-
-  
 </style>
