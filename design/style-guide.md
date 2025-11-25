@@ -22,15 +22,6 @@ The designs were created to the following widths:
 - Grey 900: hsl(213, 19%, 18%)
 - Grey 950: hsl(216, 12%, 8%)
 
-## Typography
-
 ### Body Copy
 
 - Font size (paragraph): 15px
-
-### Font
-
-- Family: [Overpass](https://fonts.google.com/specimen/Overpass)
-- Weights: 400, 700
-
-> 💎 [Upgrade to Pro](https://www.frontendmentor.io/pro?ref=style-guide) for design file access to see all design details and get hands-on experience using a professional workflow with tools like Figma.
